@@ -5,14 +5,13 @@ import requests
 # Inicializando sessão Spark
 spark = SparkSession.builder.appName("Case - Ifood").getOrCreate()
 
-GITHUB_TOKEN = 'token-teste'
-HEADERS = {
-    'Authorization': f'token {GITHUB_TOKEN}'
-}
-
 
 def get_response(url):
-    return requests.get(url, headers=HEADERS).json()
+    token = 'token-teste'
+    headers = {
+        'Authorization': f'token {token}'
+    }
+    return requests.get(url, headers=headers).json()
 
 
 def clean_data(user_data):
